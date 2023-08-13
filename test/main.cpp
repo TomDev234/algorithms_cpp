@@ -149,14 +149,13 @@ int test_insertionsort() {
   auto start = std::chrono::high_resolution_clock::now();
   for (int i = 0; i < count; i++) {
     array = originalArray;
-    const int n = (int)array.size();
-    insertionSort(array, n);
+    insertionSort(array);
   }
   auto stop = std::chrono::high_resolution_clock::now();
   auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
   cout << "execution time: " << duration.count() << " ms\n";
   cout << "times per second " << count * 1000 / duration.count() << endl;
-
+  
   int result = 0;
   if (array != sortedArray) {
     cout << "The vectors are not equal Error!" << endl;

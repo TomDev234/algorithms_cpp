@@ -15,7 +15,7 @@
 template <typename T>
 
 void insertionSort(std::vector<T>& array, int left, int right) {
-  for (int i = left + 1; i <= right; ++i) {
+  for (int i = left + 1; i <= right; i++) {
     T key = array[i];
     int j = i - 1;
     while (j >= left && array[j] > key) {
@@ -28,13 +28,16 @@ void insertionSort(std::vector<T>& array, int left, int right) {
 
 template <typename T>
 
-void insertionSort(std::vector<T>& array, int n) {
-  for(int i = 0; i < n; i++) {
-    int j = i;
-    while(j > 0 && array[j] < array[j-1]) {
-      swap(array[j],array[j-1]);
+void insertionSort(vector<T>&array) {
+  int n = (int)array.size();
+  for (int i = 1; i < n; i++) {
+    int key = array[i];
+    int j = i - 1;
+    while (j >= 0 && array[j] > key) {
+      array[j + 1] = array[j];
       j--;
     }
+    array[j + 1] = key;
   }
 }
 
