@@ -16,6 +16,12 @@
 		E22056832A83D2C700A39A9A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E22038342A7A9BB200EADBBE /* main.cpp */; };
 		E24794C52A7CFD92008844F0 /* libalgorithms_cpp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E220381D2A7A9B1100EADBBE /* libalgorithms_cpp.dylib */; };
 		E24794C62A7CFD92008844F0 /* libalgorithms_cpp.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = E220381D2A7A9B1100EADBBE /* libalgorithms_cpp.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		E25575912A878D2B00346E91 /* quicksort.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E255758F2A878D2B00346E91 /* quicksort.hpp */; };
+		E25575942A88493500346E91 /* factorial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E25575922A88493500346E91 /* factorial.cpp */; };
+		E25575952A88493500346E91 /* factorial.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E25575932A88493500346E91 /* factorial.hpp */; };
+		E26A15D92A86C05A00BF2111 /* mergesort.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E26A15D72A86C05A00BF2111 /* mergesort.hpp */; };
+		E26A15DD2A86C64D00BF2111 /* insertionsort.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E26A15DB2A86C64D00BF2111 /* insertionsort.hpp */; };
+		E2718A0A2A88DC4C006EC901 /* binarysearch.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E2718A082A88DC4C006EC901 /* binarysearch.hpp */; };
 		E2D8691B2A7DB4EF004AF13B /* fibonacci.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2D869192A7DB4EF004AF13B /* fibonacci.cpp */; };
 		E2D8691C2A7DB4EF004AF13B /* fibonacci.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E2D8691A2A7DB4EF004AF13B /* fibonacci.hpp */; };
 /* End PBXBuildFile section */
@@ -62,6 +68,12 @@
 		E22038282A7A9B4100EADBBE /* sieve.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = sieve.hpp; sourceTree = "<group>"; };
 		E22038322A7A9BB200EADBBE /* algorithms_tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = algorithms_tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		E22038342A7A9BB200EADBBE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		E255758F2A878D2B00346E91 /* quicksort.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = quicksort.hpp; sourceTree = "<group>"; };
+		E25575922A88493500346E91 /* factorial.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = factorial.cpp; sourceTree = "<group>"; };
+		E25575932A88493500346E91 /* factorial.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = factorial.hpp; sourceTree = "<group>"; };
+		E26A15D72A86C05A00BF2111 /* mergesort.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = mergesort.hpp; sourceTree = "<group>"; };
+		E26A15DB2A86C64D00BF2111 /* insertionsort.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = insertionsort.hpp; sourceTree = "<group>"; };
+		E2718A082A88DC4C006EC901 /* binarysearch.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = binarysearch.hpp; sourceTree = "<group>"; };
 		E2D869192A7DB4EF004AF13B /* fibonacci.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fibonacci.cpp; sourceTree = "<group>"; };
 		E2D8691A2A7DB4EF004AF13B /* fibonacci.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = fibonacci.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,12 +120,18 @@
 			isa = PBXGroup;
 			children = (
 				E22038272A7A9B4100EADBBE /* algorithms_cpp.hpp */,
-				E2D869192A7DB4EF004AF13B /* fibonacci.cpp */,
-				E2D8691A2A7DB4EF004AF13B /* fibonacci.hpp */,
-				E22038252A7A9B4100EADBBE /* fft.cpp */,
-				E22038262A7A9B4100EADBBE /* fft.hpp */,
+				E2718A082A88DC4C006EC901 /* binarysearch.hpp */,
 				E22038242A7A9B4100EADBBE /* sieve.cpp */,
 				E22038282A7A9B4100EADBBE /* sieve.hpp */,
+				E2D869192A7DB4EF004AF13B /* fibonacci.cpp */,
+				E2D8691A2A7DB4EF004AF13B /* fibonacci.hpp */,
+				E25575922A88493500346E91 /* factorial.cpp */,
+				E25575932A88493500346E91 /* factorial.hpp */,
+				E22038252A7A9B4100EADBBE /* fft.cpp */,
+				E22038262A7A9B4100EADBBE /* fft.hpp */,
+				E255758F2A878D2B00346E91 /* quicksort.hpp */,
+				E26A15D72A86C05A00BF2111 /* mergesort.hpp */,
+				E26A15DB2A86C64D00BF2111 /* insertionsort.hpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -140,10 +158,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E25575952A88493500346E91 /* factorial.hpp in Headers */,
+				E26A15DD2A86C64D00BF2111 /* insertionsort.hpp in Headers */,
 				E220382C2A7A9B4100EADBBE /* algorithms_cpp.hpp in Headers */,
 				E2D8691C2A7DB4EF004AF13B /* fibonacci.hpp in Headers */,
 				E220382D2A7A9B4100EADBBE /* sieve.hpp in Headers */,
 				E220382B2A7A9B4100EADBBE /* fft.hpp in Headers */,
+				E2718A0A2A88DC4C006EC901 /* binarysearch.hpp in Headers */,
+				E25575912A878D2B00346E91 /* quicksort.hpp in Headers */,
+				E26A15D92A86C05A00BF2111 /* mergesort.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +253,7 @@
 				E220382A2A7A9B4100EADBBE /* fft.cpp in Sources */,
 				E22038292A7A9B4100EADBBE /* sieve.cpp in Sources */,
 				E220567F2A83C58400A39A9A /* main.cpp in Sources */,
+				E25575942A88493500346E91 /* factorial.cpp in Sources */,
 				E2D8691B2A7DB4EF004AF13B /* fibonacci.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,6 +395,8 @@
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
 				GCC_OPTIMIZATION_LEVEL = 3;
+				HEADER_SEARCH_PATHS = /opt/local/include/libomp;
+				LIBRARY_SEARCH_PATHS = /opt/local/lib/libomp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -385,6 +411,8 @@
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
 				GCC_OPTIMIZATION_LEVEL = 3;
+				HEADER_SEARCH_PATHS = /opt/local/include/libomp;
+				LIBRARY_SEARCH_PATHS = /opt/local/lib/libomp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -397,6 +425,8 @@
 				DEVELOPMENT_TEAM = MZZYNFT3CX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
+				HEADER_SEARCH_PATHS = /opt/local/include/libomp;
+				LIBRARY_SEARCH_PATHS = /opt/local/lib/libomp;
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -409,6 +439,8 @@
 				DEVELOPMENT_TEAM = MZZYNFT3CX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
+				HEADER_SEARCH_PATHS = /opt/local/include/libomp;
+				LIBRARY_SEARCH_PATHS = /opt/local/lib/libomp;
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

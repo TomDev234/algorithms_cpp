@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 
-long fibonacci(short n);
+long recursiveFibonacci(short n);
+long iterativeFibonacci(short n);
 
 #endif /* fibonacci_hpp */

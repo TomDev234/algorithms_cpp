@@ -10,7 +10,9 @@
 #define sieve_hpp
 
 #include <vector>
+
 using namespace std;
+
 vector<int>SieveOfEratosthenes(int n);
 
 #endif
