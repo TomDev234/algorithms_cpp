@@ -19,7 +19,7 @@ long recursiveFibonacci(short n) {
   return result;
 }
 
-long memoizedFibonacciWorker(long n, vector<long>&m) {
+long memoizedFibonacciWorker(short n, vector<long>&m) {
   long result;
   if(m[n] != 0)
     result = m[n];
@@ -32,7 +32,7 @@ long memoizedFibonacciWorker(long n, vector<long>&m) {
   return result;
 }
 
-long memoizedFibobnacci(long n) {
+long memoizedFibonacci(short n) {
   vector<long>m(n + 1, 0);
   long result = memoizedFibonacciWorker(n, m);
   return result;

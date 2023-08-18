@@ -11,6 +11,7 @@
 #include <stdio.h>
 
 long recursiveFibonacci(short n);
+long memoizedFibonacci(short n);
 long iterativeFibonacci(short n);
 
 #endif /* fibonacci_hpp */

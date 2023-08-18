@@ -6,6 +6,7 @@
 //
 
 #include "algorithms_cpp.hpp"
+#include "test_omp.hpp"
 #include <iostream>
 #include <array>
 #include <vector>
@@ -266,6 +267,7 @@ int main() {
   result += test_insertionsort();
   result += test_mergesort();
   result += test_quicksort();
+  result += test_omp();
   cout << "Failed Tests " << result << endl;
   return result;
 }

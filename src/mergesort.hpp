@@ -40,7 +40,7 @@ void merge(vector<T>& array, int left, int mid, int right) {
   vector<int> leftArray(n1);
   vector<int> rightArray(n2);
   
-  // Copy data to temporary arrays leftArr[] and rightArr[]
+  // Copy data to temporary arrays leftArray[] and rightArray[]
   for (int i = 0; i < n1; i++) {
     leftArray[i] = array[left + i];
   }
@@ -48,7 +48,7 @@ void merge(vector<T>& array, int left, int mid, int right) {
     rightArray[i] = array[mid + 1 + i];
   }
   
-  // Merge the temporary arrays back into arr[left..right]
+  // Merge the temporary arrays back into array[left..right]
   int i = 0; // Initial index of first subarray
   int j = 0; // Initial index of second subarray
   int k = left; // Initial index of merged subarray
@@ -57,7 +57,8 @@ void merge(vector<T>& array, int left, int mid, int right) {
     if (leftArray[i] <= rightArray[j]) {
       array[k] = leftArray[i];
       i++;
-    } else {
+    }
+    else {
       array[k] = rightArray[j];
       j++;
     }
