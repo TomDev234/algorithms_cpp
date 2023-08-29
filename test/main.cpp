@@ -158,7 +158,7 @@ int test_insertionsort() {
   auto start = std::chrono::high_resolution_clock::now();
   for (int i = 0; i < count; i++) {
     array = originalArray;
-    insertionSort(array);
+    insertionSortAlgs4(array);
   }
   auto stop = std::chrono::high_resolution_clock::now();
   auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);

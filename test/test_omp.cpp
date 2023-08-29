@@ -13,6 +13,8 @@
 using namespace std;
 
 int test_omp() {
+  cout << "OpenMP\n";
+  cout << "------\n";
   int result = 0;
   cout << "Number of Threads=" << omp_get_max_threads() << endl;
   #pragma omp parallel

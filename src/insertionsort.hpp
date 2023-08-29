@@ -41,4 +41,16 @@ void insertionSort(vector<T>&array) {
   }
 }
 
+template <typename T>
+
+void insertionSortAlgs4(vector<T>&a) {
+  // Sort a[] into increasing order.
+  int n = (int)a.size();
+  for (int i = 1; i < n; i++) {
+    // Insert a[i] among a[i-1], a[i-2], a[i-3]... ..
+    for (int j = i; j > 0 && a[j] < a[j-1]; j--)
+      swap(a[j], a[j-1]);
+  }
+}
+
 #endif /* insertionsort_hpp */
