@@ -18,17 +18,39 @@ using namespace std;
 
 template <typename T>
 
-int partition(vector<T>& array, int low, int high) {
+int partition1(vector<T>array, int low, int high) {
+  // Partition into a[lo..i-1], a[i], a[i+1..hi].
+  int i = low, j = high + 1; // left and right scan indices
+  T pivot = array[low]; // partitioning item
+  while (true) {
+    // Scan right, scan left, check for scan complete, and exchange.
+    while (array[++i] < pivot)
+      if (i == high)
+        break;
+    while (pivot < array[--j])
+      if (j == low)
+        break;
+    if (i >= j)
+      break;
+    swap(array[i], array[j]);
+  }
+  swap(array[low], array[j]);
+  return j;
+}
+
+template <typename T>
+
+int partition2(vector<T>& array, int low, int high) {
   int pivot = array[high];
-  int i = low;
+  int i = low - 1;
   for (int j = low; j <= high - 1; j++) {
     if (array[j] < pivot) {
-      swap(array[i], array[j]);
       i++;
+      swap(array[i], array[j]);
     }
   }
-  swap(array[i], array[high]);
-  return (i);
+  swap(array[i + 1], array[high]);
+  return (i + 1);
 }
 
 template <typename T>
@@ -36,7 +58,7 @@ template <typename T>
 int randomPartition(vector<T>& array, int low, int high) {
     int randomIndex = low + rand() % (high - low + 1);
     swap(array[randomIndex], array[high]);
-    return partition(array, low, high);
+    return partition2(array, low, high);
 }
 
 template <typename T>
