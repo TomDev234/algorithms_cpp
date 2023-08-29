@@ -37,6 +37,6 @@ int test_omp() {
   }
   if(total_sum != 50005000)
     result = 1;
-  cout << "Total Sum=" << total_sum << endl;
+  cout << "Total Sum=" << total_sum << endl << endl;
   return result;
 }

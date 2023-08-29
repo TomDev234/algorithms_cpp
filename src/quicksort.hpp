@@ -61,6 +61,10 @@ int randomPartition(vector<T>& array, int low, int high) {
     return partition2(array, low, high);
 }
 
+// chosing the Median of 3 random Elements
+
+// 3 Way Quicksort, dealing with Duplicates
+
 template <typename T>
 
 void recursiveQuickSort(vector<T>& array, int low, int high) {

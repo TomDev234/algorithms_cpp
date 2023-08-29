@@ -137,13 +137,21 @@ int test_fft() {
   return result;
 }
 
+template <typename T>
+
+bool isSorted(vector<T>array) {
+  // Test whether the array entries are in order.
+  for (int i = 1; i < array.size(); i++)
+    if (array[i] < array[i-1])
+      return false;
+    return true;
+}
+
 int test_insertionsort() {
   cout << "Insertion Sort\n";
   cout << "--------------\n";
   
   vector<int>originalArray = { 458, 557, 746, 88, 287, 751, 615, 269, 910, 722, 297, 234, 128, 205, 275, 246, 882, 262, 7, 843, 860, 14, 702, 525, 392, 585, 168, 313, 146, 89, 727, 58, 743, 495, 63, 908, 265, 436, 262, 924, 79, 7, 627, 350, 840, 984, 977, 475, 177, 196, 529, 863, 51, 180, 718, 243, 395, 122, 949, 377, 661, 896, 9, 128, 423, 805, 652, 809, 26, 10, 973, 865, 11, 54, 339, 929, 222, 696, 913, 215, 855, 882, 848, 111, 902, 213, 468, 536, 530, 933, 143, 338, 691, 89, 799, 496, 512, 391, 371, 781};
-  
-  vector<int>sortedArray = { 7, 7, 9, 10, 11, 14, 26, 51, 54, 58, 63, 79, 88, 89, 89, 111, 122, 128, 128, 143, 146, 168, 177, 180, 196, 205, 213, 215, 222, 234, 243, 246, 262, 262, 265, 269, 275, 287, 297, 313, 338, 339, 350, 371, 377, 391, 392, 395, 423, 436, 458, 468, 475, 495, 496, 512, 525, 529, 530, 536, 557, 585, 615, 627, 652, 661, 691, 696, 702, 718, 722, 727, 743, 746, 751, 781, 799, 805, 809, 840, 843, 848, 855, 860, 863, 865, 882, 882, 896, 902, 908, 910, 913, 924, 929, 933, 949, 973, 977, 984};
 
   const int count = 1000000;
   vector<int>array;
@@ -158,12 +166,12 @@ int test_insertionsort() {
   cout << "times per second " << count * 1000 / duration.count() << endl;
   
   int result = 0;
-  if (array != sortedArray) {
-    cout << "The vectors are not equal Error!" << endl;
+  if (!isSorted(array)) {
+    cout << "Vector not sorted Error!" << endl;
     result = 1;
   }
   else {
-    cout << "The vectors are equal." << endl;
+    cout << "The Vector is sorted." << endl;
   }
   cout << endl;
   
@@ -175,8 +183,6 @@ int test_mergesort() {
   cout << "----------\n";
   
   vector<int>originalArray = { 458, 557, 746, 88, 287, 751, 615, 269, 910, 722, 297, 234, 128, 205, 275, 246, 882, 262, 7, 843, 860, 14, 702, 525, 392, 585, 168, 313, 146, 89, 727, 58, 743, 495, 63, 908, 265, 436, 262, 924, 79, 7, 627, 350, 840, 984, 977, 475, 177, 196, 529, 863, 51, 180, 718, 243, 395, 122, 949, 377, 661, 896, 9, 128, 423, 805, 652, 809, 26, 10, 973, 865, 11, 54, 339, 929, 222, 696, 913, 215, 855, 882, 848, 111, 902, 213, 468, 536, 530, 933, 143, 338, 691, 89, 799, 496, 512, 391, 371, 781};
-  
-  vector<int>sortedArray = { 7, 7, 9, 10, 11, 14, 26, 51, 54, 58, 63, 79, 88, 89, 89, 111, 122, 128, 128, 143, 146, 168, 177, 180, 196, 205, 213, 215, 222, 234, 243, 246, 262, 262, 265, 269, 275, 287, 297, 313, 338, 339, 350, 371, 377, 391, 392, 395, 423, 436, 458, 468, 475, 495, 496, 512, 525, 529, 530, 536, 557, 585, 615, 627, 652, 661, 691, 696, 702, 718, 722, 727, 743, 746, 751, 781, 799, 805, 809, 840, 843, 848, 855, 860, 863, 865, 882, 882, 896, 902, 908, 910, 913, 924, 929, 933, 949, 973, 977, 984};
   
   const int count = 1000000;
   vector<int>array;
@@ -191,23 +197,23 @@ int test_mergesort() {
   cout << "times per second " << count * 1000 / duration.count() << endl;
 
   int result = 0;
-  if (array != sortedArray) {
-    cout << "IterativeMergeSort the vectors are not equal Error!" << endl;
+  if (!isSorted(array)) {
+    cout << "IterativeMergeSort the Vector is not sorted Error!" << endl;
     result = 1;
   }
   else {
-    cout << "IterativeMergeSort the vectors are equal." << endl;
+    cout << "IterativeMergeSort the Vector is sorted." << endl;
   }
   
   array = originalArray;
   recursiveMergeSort(array, 0, (int)array.size() - 1);
   
-  if (array != sortedArray) {
-    cout << "RecursiveMergeSort the vectors are not equal Error!" << endl;
+  if (!isSorted(array)) {
+    cout << "RecursiveMergeSort the Vector is not sorted Error!" << endl;
     result = 1;
   }
   else {
-    cout << "RecursiveMergeSort the vectors are equal." << endl;
+    cout << "RecursiveMergeSort the Vector is sorted." << endl;
   }
 
   cout <<endl;
@@ -219,8 +225,6 @@ int test_quicksort() {
   cout << "----------\n";
   
   vector<int>originalArray = { 458, 557, 746, 88, 287, 751, 615, 269, 910, 722, 297, 234, 128, 205, 275, 246, 882, 262, 7, 843, 860, 14, 702, 525, 392, 585, 168, 313, 146, 89, 727, 58, 743, 495, 63, 908, 265, 436, 262, 924, 79, 7, 627, 350, 840, 984, 977, 475, 177, 196, 529, 863, 51, 180, 718, 243, 395, 122, 949, 377, 661, 896, 9, 128, 423, 805, 652, 809, 26, 10, 973, 865, 11, 54, 339, 929, 222, 696, 913, 215, 855, 882, 848, 111, 902, 213, 468, 536, 530, 933, 143, 338, 691, 89, 799, 496, 512, 391, 371, 781};
-  
-  vector<int>sortedArray = { 7, 7, 9, 10, 11, 14, 26, 51, 54, 58, 63, 79, 88, 89, 89, 111, 122, 128, 128, 143, 146, 168, 177, 180, 196, 205, 213, 215, 222, 234, 243, 246, 262, 262, 265, 269, 275, 287, 297, 313, 338, 339, 350, 371, 377, 391, 392, 395, 423, 436, 458, 468, 475, 495, 496, 512, 525, 529, 530, 536, 557, 585, 615, 627, 652, 661, 691, 696, 702, 718, 722, 727, 743, 746, 751, 781, 799, 805, 809, 840, 843, 848, 855, 860, 863, 865, 882, 882, 896, 902, 908, 910, 913, 924, 929, 933, 949, 973, 977, 984};
   
   const int count = 1000000;
   vector<int>array;
@@ -236,22 +240,22 @@ int test_quicksort() {
   cout << "times per second " << count * 1000 / duration.count() << endl;
 
   int result = 0;
-  if (array != sortedArray) {
-    cout << "IterativeQuickSort the vectors are not equal Error!" << endl;
+  if (!isSorted(array)) {
+    cout << "IterativeQuickSort the Vector is not sorted Error!" << endl;
     result = 1;
   }
   else {
-    cout << "IterativeQuickSort the vectors are equal." << endl;
+    cout << "IterativeQuickSort the Vector is sorted." << endl;
   }
   
   array = originalArray;
   recursiveQuickSort(array, 0, (int)array.size() - 1);
-  if (array != sortedArray) {
-    cout << "RecursiveQuickSort the vectors are not equal Error!" << endl;
+  if (!isSorted(array)) {
+    cout << "RecursiveQuickSort the Vector is not sorted Error!" << endl;
     result = 1;
   }
   else {
-    cout << "RecursiveQuickSort the vectors are equal." << endl;
+    cout << "RecursiveQuickSort the Vector is sorted." << endl;
   }
 
   cout <<endl;
