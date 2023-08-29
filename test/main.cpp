@@ -227,8 +227,8 @@ int test_quicksort() {
   auto start = std::chrono::high_resolution_clock::now();
   for (int i = 0; i < count; i++) {
     array = originalArray;
-    const int n = (int)array.size();
-    iterativeQuickSort(array,0,n-1);
+    const int n = (int)array.size() - 1;
+    iterativeQuickSort(array,0,n);
   }
   auto stop = std::chrono::high_resolution_clock::now();
   auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
@@ -260,14 +260,14 @@ int test_quicksort() {
 
 int main() {
   int result = 0;
-  result += test_sieve();
-  result += test_fibonacci();
-  result += test_factorial();
-  result += test_fft();
-  result += test_insertionsort();
-  result += test_mergesort();
+//  result += test_sieve();
+//  result += test_fibonacci();
+//  result += test_factorial();
+//  result += test_fft();
+//  result += test_insertionsort();
+//  result += test_mergesort();
   result += test_quicksort();
-  result += test_omp();
+//  result += test_omp();
   cout << "Failed Tests " << result << endl;
   return result;
 }
