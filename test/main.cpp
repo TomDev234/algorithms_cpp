@@ -140,11 +140,14 @@ int test_fft() {
 template <typename T>
 
 bool isSorted(vector<T>array) {
+  bool result = true;
   // Test whether the array entries are in order.
   for (int i = 1; i < array.size(); i++)
-    if (array[i] < array[i-1])
-      return false;
-    return true;
+    if (array[i] < array[i-1]) {
+      result = false;
+      break;
+    }
+  return result;
 }
 
 int test_insertionsort() {
