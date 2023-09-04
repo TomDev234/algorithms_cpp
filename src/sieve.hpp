@@ -11,8 +11,6 @@
 
 #include <vector>
 
-using namespace std;
-
-vector<int>SieveOfEratosthenes(int n);
+std::vector<int>SieveOfEratosthenes(int n);
 
 #endif

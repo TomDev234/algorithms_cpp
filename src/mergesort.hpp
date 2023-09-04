@@ -17,28 +17,27 @@
 // Merge sort parallelizes well due to use of the divide-and-conquer method.
 // Merging of the Arrays can be optimized by Parallel For Loops.
 
+#include "insertionsort.hpp"
 #include <iostream>
 #include <vector>
 #include <algorithm>
 //#include <omp.h>
 
-using namespace std;
-
 // Merge two subarrays of arr[].
 // First subarray is arr[left..mid].
 // Second subarray is arr[mid+1..right].
 
-const int CacheLineSize = 64;
+#define CacheLineSize 64
 
 template <typename T>
 
-void merge(vector<T>& array, int left, int mid, int right) {
+void merge(std::vector<T>& array, int left, int mid, int right) {
   int n1 = mid - left + 1;
   int n2 = right - mid;
   
   // Create temporary arrays
-  vector<int> leftArray(n1);
-  vector<int> rightArray(n2);
+  std::vector<int> leftArray(n1);
+  std::vector<int> rightArray(n2);
   
   // Copy data to temporary arrays leftArray[] and rightArray[]
   for (int i = 0; i < n1; i++) {
@@ -82,7 +81,7 @@ void merge(vector<T>& array, int left, int mid, int right) {
 
 template <typename T>
 
-void recursiveMergeSort(vector<T>& array, int left, int right) {
+void recursiveMergeSort(std::vector<T>& array, int left, int right) {
   if (left < right) {
     int middle = left + (right - left) / 2;
     
@@ -105,12 +104,12 @@ void recursiveMergeSort(vector<T>& array, int left, int right) {
 
 template <typename T>
 
-void iterativeMergeSort(vector<T>&array) {
+void iterativeMergeSort(std::vector<T>&array) {
   int n = (int)array.size();
   for (int currentSize = 1; currentSize <= n - 1; currentSize = 2 * currentSize) {
     for (int left = 0; left < n - 1; left += 2 * currentSize) {
-      int mid = min(left + currentSize - 1, n - 1);
-      int right = min(left + 2 * currentSize - 1, n - 1);
+      int mid = std::min(left + currentSize - 1, n - 1);
+      int right = std::min(left + 2 * currentSize - 1, n - 1);
       if (right - left + 1 < CacheLineSize / sizeof(T)) {
         insertionSort(array, left, right);
       }

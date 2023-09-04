@@ -10,15 +10,16 @@
 #ifndef quicksort_hpp
 #define quicksort_hpp
 
+#include "insertionsort.hpp"
 #include <iostream>
 #include <vector>
 #include <stack>
 
-using namespace std;
+#define CacheLineSize 64
 
 template <typename T>
 
-int partition1(vector<T>array, int low, int high) {
+int partition1(std::vector<T>array, int low, int high) {
   // Partition into a[lo..i-1], a[i], a[i+1..hi].
   int i = low, j = high + 1; // left and right scan indices
   T pivot = array[low]; // partitioning item
@@ -40,24 +41,24 @@ int partition1(vector<T>array, int low, int high) {
 
 template <typename T>
 
-int partition2(vector<T>& array, int low, int high) {
+int partition2(std::vector<T>& array, int low, int high) {
   int pivot = array[high];
   int i = low - 1;
   for (int j = low; j <= high - 1; j++) {
     if (array[j] < pivot) {
       i++;
-      swap(array[i], array[j]);
+      std::swap(array[i], array[j]);
     }
   }
-  swap(array[i + 1], array[high]);
+  std::swap(array[i + 1], array[high]);
   return (i + 1);
 }
 
 template <typename T>
 
-int randomPartition(vector<T>& array, int low, int high) {
+int randomPartition(std::vector<T>& array, int low, int high) {
     int randomIndex = low + rand() % (high - low + 1);
-    swap(array[randomIndex], array[high]);
+    std::swap(array[randomIndex], array[high]);
     return partition2(array, low, high);
 }
 
@@ -67,7 +68,7 @@ int randomPartition(vector<T>& array, int low, int high) {
 
 template <typename T>
 
-void recursiveQuickSort(vector<T>& array, int low, int high) {
+void recursiveQuickSort(std::vector<T>& array, int low, int high) {
   if (low < high) {
     int pivot = randomPartition(array, low, high);
     
@@ -85,8 +86,8 @@ void recursiveQuickSort(vector<T>& array, int low, int high) {
 
 template <typename T>
 
-void iterativeQuickSort(vector<T>& array, int low, int high) {
-  stack<int> stack;
+void iterativeQuickSort(std::vector<T>& array, int low, int high) {
+  std::stack<int> stack;
   stack.push(low);
   stack.push(high);
 
